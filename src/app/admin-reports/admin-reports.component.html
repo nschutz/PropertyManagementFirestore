@@ -1,0 +1,35 @@
+<div>
+  <div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">search</i>
+          <input type="text" id="autocomplete-input" ng-model="searchBox" (keyup)="filter($event)" class="autocomplete">
+          <label for="autocomplete-input">Search</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-select (change)="onChange()" syle="font-size:30px;" [(value)]="selected">
+        <mat-option *ngFor="let option of options" [value]="option.value">
+          {{ option.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Location</th>
+          <th>Completed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let report of reportServ.allReports | async" report-detail [report]="report">
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

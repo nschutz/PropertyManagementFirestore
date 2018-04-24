@@ -1,0 +1,51 @@
+<center>
+  <div *ngIf="auth.user | async as user" class="container">
+    <h3>Report Damages</h3>
+    <form [formGroup]="userForm">
+      <div class="row">
+        <div class='input-field col s6'>
+          <input class='validate' type='text' name='name' id='name' value={{user.name}} disabled />
+          <label class="active" for='name'>Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class='input-field col s6'>
+          <input class='validate' type='text' name='address' id='address' value={{user.address}} disabled />
+          <label class="active" for='address'>Address</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input class="validate" formControlName="location" id="location" name="location" type="text" required />
+          <label for="location">Location</label>
+          {{ formErrors.location }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea formControlName="description" id="textarea" class="materialize-textarea" required></textarea>
+            <label for="textarea1">Description</label>
+            {{ formErrors.description }}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="file-field input-field">
+          <div class="btn red">
+            <span>Upload Photo</span>
+            <input (change)="detectFiles($event)" class="file" type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </div>
+      <center>
+        <div class='row'>
+          <button (click)="fileReport()" id="report" name='btn_report' class='col s3 btn btn-large waves-effect red'>Report</button>
+        </div>
+      </center>
+    </form>
+  </div>
+</center>

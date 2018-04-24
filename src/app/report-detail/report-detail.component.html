@@ -1,0 +1,6 @@
+<td>{{ report.description }}</td>
+<td>{{ report.location}}</td>
+<td *ngIf="report.completed == true"><i class="material-icons">check</i></td>
+<td *ngIf="report.completed == false"><i class="material-icons">remove</i></td>
+<td><button (click)="viewPhoto($event)" class="waves-effect waves-light btn grey">View Details</button></td>
+<td><button (click)="reportCompleted($event)" class="waves-effect waves-light btn">Complete</button></td>

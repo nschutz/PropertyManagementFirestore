@@ -1,0 +1,13 @@
+/* label focus color */
+.input-field input:focus + label {
+  color: #F44336 !important;
+}
+
+.input-field .prefix.active {
+  color: #F44336 !important;
+}
+/* label underline focus color */
+.input-field input {
+  border-bottom: 1px solid #000000 !important;
+  box-shadow: 0 1px 0 0 #000000 !important;
+}
